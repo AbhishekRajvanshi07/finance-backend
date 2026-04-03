@@ -1,27 +1,28 @@
-# Finance Data Processing & Access Control Backend
+# 💰 Finance Data Processing & Access Control Backend
 
-A modular backend system for managing financial records with role-based access control and dashboard analytics.
+A scalable backend system for managing financial transactions with **role-based access control (RBAC)**, secure APIs, and dashboard analytics.
+
+---
+
+## ⭐ Highlights
+
+* Role-Based Access Control (Admin, Analyst, Viewer)
+* Secure multi-user system with data isolation (`createdBy`)
+* Optimized dashboard using database aggregation (Prisma)
+* Fully documented APIs with Swagger
+* Clean and modular backend architecture
 
 ---
 
 ## 🚀 Overview
 
-This project is a backend system built using **Node.js, Express, Prisma, and PostgreSQL**. It supports:
-
-* User authentication and role-based access control
-* Financial transaction management
-* Dashboard analytics (income, expenses, trends)
-* Secure and scalable API design
+This backend is built using **Node.js, Express, Prisma, and PostgreSQL** to handle financial records, enforce access control, and provide analytics for a dashboard system.
 
 ---
 
 ## 🏗️ Architecture
 
-The backend follows a layered architecture:
-
-```
 Routes → Middleware → Controllers → Prisma ORM → Database
-```
 
 ### Key Components:
 
@@ -34,11 +35,11 @@ Routes → Middleware → Controllers → Prisma ORM → Database
 
 ## 🔐 Role-Based Access Control
 
-| Role    | Permissions                            |
-| ------- | -------------------------------------- |
-| Admin   | Full CRUD access on transactions       |
-| Analyst | Read transactions + dashboard insights |
-| Viewer  | Limited / read-only access             |
+| Role    | Permissions                |
+| ------- | -------------------------- |
+| Admin   | Full CRUD access           |
+| Analyst | Read + dashboard insights  |
+| Viewer  | Read-only / limited access |
 
 ---
 
@@ -46,11 +47,11 @@ Routes → Middleware → Controllers → Prisma ORM → Database
 
 ### 1. User Management
 
-* Register and login users
-* JWT-based authentication
-* Role assignment (Admin / Analyst / Viewer)
+* Register & login users
+* JWT authentication
+* Role-based access enforcement
 
-### 2. Financial Records
+### 2. Financial Transactions
 
 * Create, update, delete transactions
 * Filter by:
@@ -72,11 +73,11 @@ Routes → Middleware → Controllers → Prisma ORM → Database
 
 ## 🔒 Security Features
 
-* JWT authentication
+* JWT-based authentication
 * Role-based access control (RBAC)
 * User-level data isolation (`createdBy`)
-* Input validation using Zod
 * Secure update/delete with ownership checks
+* Input validation using Zod
 
 ---
 
@@ -91,66 +92,23 @@ Routes → Middleware → Controllers → Prisma ORM → Database
 
 ---
 
-## 📦 Installation & Setup
+## 🌐 API Access (Local Setup)
 
-### 1. Clone Repository
-
-```bash
-git clone <your-repo-link>
-cd finance-backend
-```
-
-### 2. Install Dependencies
-
-```bash
-npm install
-```
-
-### 3. Setup Environment Variables
-
-Create a `.env` file:
-
-```
-DATABASE_URL=your_database_url
-JWT_SECRET=your_secret_key
-PORT=4000
-```
-
----
-
-### 4. Run Prisma Migrations
-
-```bash
-npx prisma migrate dev
-```
-
----
-
-### 5. Start Server
-
-```bash
-npm run dev
-```
-
-Server runs on:
-
-```
+Base URL:
 http://localhost:4000
-```
 
----
-
-## 📄 API Documentation
-
-Swagger docs available at:
-
-```
+Swagger Docs:
 http://localhost:4000/docs
-```
+
+### How to Test APIs:
+
+1. Start the server using `npm run dev`
+2. Open Swagger UI in your browser
+3. Test endpoints directly
 
 ---
 
-## 🔁 API Endpoints
+## 📄 API Endpoints
 
 ### Auth
 
@@ -159,10 +117,10 @@ http://localhost:4000/docs
 
 ### Transactions
 
-* `POST /transactions` (Admin)
-* `GET /transactions` (Admin, Analyst)
-* `PATCH /transactions/:id` (Admin)
-* `DELETE /transactions/:id` (Admin)
+* `GET /transactions`
+* `POST /transactions`
+* `PATCH /transactions/{id}`
+* `DELETE /transactions/{id}`
 
 ### Dashboard
 
@@ -171,21 +129,54 @@ http://localhost:4000/docs
 
 ---
 
+## 📦 Installation & Setup
+
+### 1. Clone Repository
+
+git clone <your-repo-link>
+cd finance-backend
+
+### 2. Install Dependencies
+
+npm install
+
+### 3. Setup Environment Variables
+
+Create `.env` file:
+
+DATABASE_URL=your_database_url
+JWT_SECRET=your_secret_key
+PORT=4000
+
+---
+
+### 4. Run Migrations
+
+npx prisma migrate dev
+
+---
+
+### 5. Start Server
+
+npm run dev
+
+---
+
 ## 🧠 Key Design Decisions
 
 * Used **JWT** for stateless authentication
 * Implemented **RBAC middleware** for clean access control
-* Enforced **user-level data isolation** to prevent data leakage
+* Enforced **user-level data isolation** for security
 * Used **Prisma ORM** for type-safe database operations
-* Designed **modular structure** for maintainability
+* Designed modular structure for maintainability
 
 ---
 
 ## ⚠️ Assumptions
 
 * Each transaction belongs to a single user
-* Roles are embedded inside JWT tokens
-* System is designed for single-tenant usage
+* Roles are embedded inside JWT
+* System is designed for single-tenant use
 
 ---
 
@@ -201,12 +192,12 @@ http://localhost:4000/docs
 
 ## 📌 Conclusion
 
-This project demonstrates backend system design with a focus on:
+This project demonstrates a **clean, secure, and scalable backend system** with:
 
-* Clean architecture
-* Secure access control
-* Scalable data handling
-* Maintainable code structure
+* Proper architecture
+* Strong access control
+* Reliable data handling
+* Professional API documentation
 
 ---
 
