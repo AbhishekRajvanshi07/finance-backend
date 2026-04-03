@@ -4,17 +4,32 @@ const router = express.Router();
 const auth = require('../middleware/auth.middleware');
 const authorize = require('../middleware/authorize');
 
-// Only ADMIN
+/**
+ * @swagger
+ * /test/admin:
+ *   get:
+ *     summary: Admin access test
+ */
 router.get('/admin', auth, authorize('ADMIN'), (req, res) => {
   res.json({ message: "Admin access granted" });
 });
 
-// ADMIN + ANALYST
+/**
+ * @swagger
+ * /test/analyst:
+ *   get:
+ *     summary: Analyst access test
+ */
 router.get('/analyst', auth, authorize('ADMIN', 'ANALYST'), (req, res) => {
   res.json({ message: "Analyst access granted" });
 });
 
-// All authenticated users
+/**
+ * @swagger
+ * /test/user:
+ *   get:
+ *     summary: User access test
+ */
 router.get('/user', auth, (req, res) => {
   res.json({ message: "User access granted" });
 });

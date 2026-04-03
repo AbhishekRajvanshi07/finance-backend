@@ -6,10 +6,20 @@ const authorize = require('../middleware/authorize');
 
 const controller = require('../controllers/dashboard.controller');
 
-// Summary → ANALYST + ADMIN
+/**
+ * @swagger
+ * /dashboard/summary:
+ *   get:
+ *     summary: Get financial summary
+ */
 router.get('/summary', auth, authorize('ADMIN', 'ANALYST'), controller.getSummary);
 
-// Trends → ANALYST + ADMIN
+/**
+ * @swagger
+ * /dashboard/trends:
+ *   get:
+ *     summary: Get trends
+ */
 router.get('/trends', auth, authorize('ADMIN', 'ANALYST'), controller.getTrends);
 
 module.exports = router;
